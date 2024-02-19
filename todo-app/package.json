@@ -2,13 +2,13 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "1.8.5",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@types/fontfaceobserver": "^2.1.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^14.18.27",
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
@@ -21,11 +21,13 @@
     "@types/webpack-env": "^1.18.0",
     "chalk": "4.1.2",
     "cross-env": "7.0.3",
+    "env-cmd": "10.1.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "fontfaceobserver": "2.3.0",
-    "husky": "8.0.1",
+    "gh-pages": "6.1.1",
+    "husky": "9.0.11",
     "i18next": "21.9.2",
     "i18next-browser-languagedetector": "6.1.5",
     "i18next-scanner": "4.0.0",
@@ -34,6 +36,7 @@
     "jest-styled-components": "7.1.1",
     "lint-staged": "13.0.3",
     "node-plop": "0.26.3",
+    "package.json": "2.0.1",
     "plop": "2.7.6",
     "prettier": "2.7.1",
     "react": "18.2.0",
@@ -46,7 +49,7 @@
     "react-router-dom": "6.3.0",
     "react-scripts": "5.0.1",
     "react-test-renderer": "18.2.0",
-    "redux-injectors": "1.3.0",
+    "redux-injectors": "2.1.0",
     "redux-saga": "1.2.1",
     "rimraf": "3.0.2",
     "sanitize.css": "13.0.0",
@@ -63,9 +66,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && yarn run workbox",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "workbox": "workbox generateSW workbox-config.ts",
     "start:prod": "yarn run build && serve -s build",
     "test:generators": "ts-node ./internals/testing/generators/test-generators.ts",
     "checkTs": "tsc --noEmit",
@@ -118,5 +122,10 @@
         "statements": 90
       }
     }
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@types/node": "20.11.19",
+    "workbox-cli": "7.0.0"
   }
 }
