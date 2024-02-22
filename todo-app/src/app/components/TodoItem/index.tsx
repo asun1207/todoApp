@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import Block from '../Block';
 import Checkbox from '../Checkbox';
@@ -8,8 +8,9 @@ import TodoInput from '../TodoInput';
 const Box = styled.div<{ isEditing: boolean }>`
   display: flex;
   align-items: center;
-  padding: ${props =>
-    props.isEditing ? '11px 15px 11px 25px' : '15px 15px 15px 25px'};
+  justify-content: space-between;
+  padding: ${({ isEditing }) =>
+    isEditing ? '11px 15px 11px 25px' : '15px 15px 15px 25px'};
   width: 100%;
   font-size: 1.1em;
   border-bottom: 1px solid #eee;

@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 const Box = styled.div<{ isEditing?: boolean }>`
   display: flex;
   align-items: center;
-  padding: ${props => (props.isEditing ? '5px 0px' : '15px 25px')};
+  padding: ${({ isEditing }) => (isEditing ? '5px 0px' : '15px 25px')};
   width: 100%;
   border-bottom: 1px solid #eee;
 `;
@@ -12,6 +12,9 @@ const Input = styled.input`
   width: 100%;
   border: none;
   outline: 0;
+  &::placeholder {
+    user-select: none;
+  }
 `;
 export default function TodoInput({
   addTodo,
@@ -30,6 +33,7 @@ export default function TodoInput({
   return (
     <Box isEditing={isEditing}>
       <Input
+        type="text"
         placeholder="Enter your todo list"
         value={content}
         onBlur={e => {
